@@ -39,7 +39,6 @@ function _generate_config_file( $path, $file_name, $config_data, $is_update = fa
 		foreach ( $config_data as $key => $value ) {
 			fwrite( $config_file, $key . ' = ' . $value . PHP_EOL );
 		}
-
 		return $config_file;
 	}
 }
@@ -53,5 +52,22 @@ function _delete_configuration_file( $path, $site_name, $bypass_error = false ) 
 	} else {
 		$flag = unlink( $path . $site_name . CNF_EXT );
 		return $flag;
+	}
+}
+
+/**
+ * Get config details
+ */
+function _get_config( $site_name ) {
+	$path_to_config = CONFIG_DIR . $site_name . CNF_EXT;
+	if ( ! file_exists( $path_to_config ) ) {
+		WP_CLI::error( 'Configuration file for ' . $site_name . ' not found.' );
+	} else {
+		$file = fopen( $path_to_config, 'r' );
+		$config_details = '';
+		while ( $line = fgets( $file ) ) {
+			$config_details .= $line;
+		}
+		WP_CLI::log( $config_details );
 	}
 }

@@ -29,8 +29,7 @@ class Show_Command extends WP_CLI_Command {
 			WP_CLI::error( $site_name . ' does not exist' );
 			die;
 		} else {
-			$result = $db->query( 'DELETE FROM ee_site_data WHERE site_name="' . $site_name . '"' );
-			WP_CLI::success( $site_name . ' successfully deleted.' );
+			_get_config( $site_name );
 		}
 	}
 }

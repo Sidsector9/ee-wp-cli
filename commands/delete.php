@@ -1,6 +1,14 @@
 <?php
 class Delete_Command extends WP_CLI_Command {
+
 	/**
+	 * Deletes a site from the database.
+	 *
+	 * Example: wp ee site delete example.com
+	 *
+	 * @param array $_          Positional argument.
+	 * @param array $assoc_args Associative argument.
+	 *
 	 * @when before_wp_load
 	 */
 	public function __invoke( $_, $assoc_args ) {
@@ -14,6 +22,7 @@ class Delete_Command extends WP_CLI_Command {
 			$site_name = $_[0];
 		}
 
+		// Check if a site even exists in the database.
 		$result = $db->query( 'SELECT site_name FROM ee_site_data WHERE site_name="' . $site_name . '"' );
 
 		if ( empty( $result->fetchArray() ) ) {

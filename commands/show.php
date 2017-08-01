@@ -1,6 +1,14 @@
 <?php
 class Show_Command extends WP_CLI_Command {
+
 	/**
+	 * Displays site configuration.
+	 *
+	 * Example: wp ee site show example.com
+	 *
+	 * @param array $_          Positional argument.
+	 * @param array $assoc_args Associative argument.
+	 *
 	 * @when before_wp_load
 	 */
 	public function __invoke( $_, $assoc_args ) {
@@ -14,6 +22,7 @@ class Show_Command extends WP_CLI_Command {
 			$site_name = $_[0];
 		}
 
+		// Check if the site even exists.
 		$result = $db->query( 'SELECT site_name FROM ee_site_data WHERE site_name="' . $site_name . '"' );
 
 		if ( empty( $result->fetchArray() ) ) {

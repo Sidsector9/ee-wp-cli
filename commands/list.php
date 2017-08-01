@@ -1,6 +1,14 @@
 <?php
 class List_Command extends WP_CLI_Command {
+
 	/**
+	 * Displays a list of domain names of all sites.
+	 *
+	 * Example: wp ee site list
+	 *
+	 * @param array $_          Positional argument.
+	 * @param array $assoc_args Associative argument.
+	 *
 	 * @when before_wp_load
 	 */
 	public function __invoke( $_, $assoc_args ) {

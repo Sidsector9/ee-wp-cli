@@ -1,6 +1,14 @@
 <?php
 class Info_Command extends WP_CLI_Command {
+
 	/**
+	 * Shows information of a particular site in a tabular form.
+	 *
+	 * Example: wp ee site info example.com
+	 *
+	 * @param array $_          Positional argument.
+	 * @param array $assoc_args Associative argument.
+	 *
 	 * @when before_wp_load
 	 */
 	public function __invoke( $_, $assoc_args ) {
@@ -14,12 +22,14 @@ class Info_Command extends WP_CLI_Command {
 			$site_name = $_[0];
 		}
 
+		// Check if the site even exists.
 		$result = $db->query( 'SELECT site_name FROM ee_site_data WHERE site_name="' . $site_name . '"' );
 		if ( empty( $result->fetchArray() ) ) {
 			WP_CLI::error( 'Site does not exist.' );
 			die;
 		}
 
+		// Reset the row pointer.
 		$result->reset();
 		$result = $db->query( 'SELECT * FROM ee_site_data WHERE site_name="' . $site_name . '"' );
 
@@ -39,6 +49,7 @@ class Info_Command extends WP_CLI_Command {
 			}
 		}
 
+		// Display in a tabular format.
 		WP_CLI\Utils\format_items( 'table', $table_array, $args );
 	}
 }

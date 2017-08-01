@@ -1,20 +1,66 @@
 <?php
 class Create_Command extends WP_CLI_Command {
 
+	/**
+	 * Name of the site.
+	 *
+	 * @var string
+	 */
 	public $site_name;
 
+	/**
+	 * Code of the type of site. Useful during update()
+	 * operation.
+	 *
+	 * @var string
+	 */
 	public $site_type_code = null;
 
+	/**
+	 * Type of the site.
+	 *
+	 * Example
+	 * - HTML
+	 * - PHP
+	 * - WordPress
+	 *
+	 * @var string
+	 */
 	public $site_type;
 
+	/**
+	 * Type of cache used.
+	 *
+	 * @var string
+	 */
 	public $cache_type;
 
+	/**
+	 * Version of PHP used.
+	 *
+	 * @var string
+	 */
 	public $php = false;
 
+	/**
+	 * Set to `enabled` while installing letsencrypt.
+	 *
+	 * @var string
+	 */
 	public $letsencrypt = false;
 
+	/**
+	 * Set to `yes`.
+	 *
+	 * @var string
+	 */
 	public $mysql;
 
+	/**
+	 * List of site types.
+	 *
+	 * @var array
+	 */
 	public $site_types = array(
 		'html',
 		'php',
@@ -25,6 +71,14 @@ class Create_Command extends WP_CLI_Command {
 	);
 
 	/**
+	 * Creates a site and stores site data in database and also creates
+	 * config files.
+	 *
+	 * Example: wp ee site create example.com --wpfc --letsencrypt
+	 *
+	 * @param array $_          Positional argument.
+	 * @param array $assoc_args Associative argument.
+	 *
 	 * @when before_wp_load
 	 */
 	public function __invoke( $_, $assoc_args ) {
@@ -179,7 +233,6 @@ class Create_Command extends WP_CLI_Command {
 		} else {
 			WP_CLI::success( $this->site_name . ' successfully created.' );
 		}
-
 	}
 }
 

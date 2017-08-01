@@ -1,0 +1,18 @@
+{
+    "name": "Sidsector9/ee-wp-cli",
+    "description": "Commands for EE Engine using WP-CLI",
+    "type": "wp-cli-package",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Sidsector9",
+            "email": "siddharth.thevaril@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "files": ["ee-loader.php"]
+    }
+}

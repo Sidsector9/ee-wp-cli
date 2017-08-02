@@ -26,7 +26,7 @@ class List_Command extends WP_CLI_Command {
 
 		// Fetch list of site names.
 		while ( $site_name = $result->fetchArray() ) {
-			WP_CLI::log( $site_name['site_name'] );
+			WP_CLI::log( WP_CLI::colorize( '%B' . $site_name['site_name'] . '%n' ) );
 		}
 	}
 }

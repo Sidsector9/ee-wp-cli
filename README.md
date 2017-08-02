@@ -26,7 +26,7 @@ wp package install git@github.com:Sidsector9/ee-wp-cli.git
 This first iteration supports the following 6 commands:
 
  * `create` - Creates a site and it's corresponding configuration file.
-    * `wp ee site create example.com`
+    * `wp ee site create example.com --php`
  * `list` - Lists all the sites in the database.
     * `wp ee site list` 
  * `info` - Shows info about a particular site in tabular format.

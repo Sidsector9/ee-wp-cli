@@ -14,9 +14,11 @@ if ( ! defined( 'CNF_EXT' ) ) {
 require_once 'helper/helper.php';
 require_once 'database/database.php';
 require_once 'commands/create.php';
-require_once 'commands/list.php';
 require_once 'commands/delete.php';
 require_once 'commands/info.php';
+require_once 'commands/list.php';
+require_once 'commands/show.php';
+require_once 'commands/update.php';
 
 
 class EE_Command extends WP_CLI_Command {

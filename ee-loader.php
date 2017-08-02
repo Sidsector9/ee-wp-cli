@@ -4,7 +4,7 @@ if ( ! defined( 'ROOT_PATH' ) ) {
 }
 
 if ( ! defined( 'CONFIG_DIR' ) ) {
-	define( 'CONFIG_DIR', dirname( __DIR__ ) . '/ee-command/database/config/' );
+	define( 'CONFIG_DIR', dirname( __DIR__ ) . '/ee-wp-cli/database/config/' );
 }
 
 if ( ! defined( 'CNF_EXT' ) ) {

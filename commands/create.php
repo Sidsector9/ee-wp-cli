@@ -33,7 +33,7 @@ class Create_Command extends WP_CLI_Command {
 	 *
 	 * @var string
 	 */
-	public $cache_type;
+	public $cache_type = 'disabled';
 
 	/**
 	 * Version of PHP used.
@@ -54,7 +54,7 @@ class Create_Command extends WP_CLI_Command {
 	 *
 	 * @var string
 	 */
-	public $mysql;
+	public $mysql = 'no';
 
 	/**
 	 * List of site types.

@@ -36,4 +36,4 @@ This first iteration supports the following 6 commands:
  * `update` - Updates a site and updates its configuration file.
     * `wp ee site update example.com --wpfc` 
  * `delete` - Deletes a particular site and it's corresponding configuration file.
-    * `wp ee:site:delete example.com` 
+    * `wp ee site delete example.com` 

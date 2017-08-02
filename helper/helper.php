@@ -50,6 +50,10 @@ function _generate_config_file( $path, $file_name, $config_data, $is_update = fa
 		_delete_configuration_file( CONFIG_DIR, $file_name );
 	}
 
+	if ( ! file_exists( rtrim( CONFIG_DIR, '/' ) ) ) {
+		mkdir( rtrim( CONFIG_DIR, '/' ), 0755, true );
+	}
+
 	if ( file_exists( $path . $file_name . CNF_EXT ) ) {
 		WP_CLI::error( 'A config file with the name ' . $file_name . CNF_EXT . ' already exists.' );
 		die();

@@ -54,20 +54,31 @@ class Update_Command extends WP_CLI_Command {
 	 * ## OPTIONS
 	 *
 	 * <name>
-	 * : The name of the site.
+	 * : Site Name
 	 *
-	 * [--options...]
-	 * : List of options.
-	 * ---
-	 * option:
-	 *   - php
-	 *   - php7
-	 *   - mysql
-	 *   - wp
-	 *   - wpfc
-	 *   - wpredis
-	 *   - letsencrypt
-	 * ---
+	 * [--html]
+	 * : HTML
+	 *
+	 * [--php]
+	 * : PHP
+	 *
+	 * [--php7]
+	 * : PHP7
+	 *
+	 * [--mysql]
+	 * : MySQL
+	 *
+	 * [--wp]
+	 * : WordPress
+	 *
+	 * [--wpfc]
+	 * : WordPress with Fase CGI
+	 *
+	 * [--wpredis]
+	 * : WordPress with Redis cache
+	 *
+	 * [--letsencrypt]
+	 * : Enable letsencrypt
 	 *
 	 * ## EXAMPLES
 	 *

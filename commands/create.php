@@ -76,25 +76,31 @@ class Create_Command extends WP_CLI_Command {
 	 * ## OPTIONS
 	 *
 	 * <name>
-	 * : The name of the site.
+	 * : Site Name
 	 *
-	 * [--options...]
-	 * : List of options.
-	 * ---
-	 * option:
-	 *   - html
-	 *   - php
-	 *   - php7
-	 *   - mysql
-	 *   - wp
-	 *   - wpfc
-	 *   - wpredis
-	 *   - letsencrypt
-	 * ---
+	 * [--html]
+	 * : Creates a simple HTML website.
 	 *
-	 * ## EXAMPLES
+	 * [--php]
+	 * : Creates a simple PHP website.
 	 *
-	 *     wp ee site create example.com --wp --letsencrypt
+	 * [--php7]
+	 * : Creates a simple PHP7 website.
+	 *
+	 * [--mysql]
+	 * : Creates a simple PHP website with MySQL database.
+	 *
+	 * [--wp]
+	 * : Creates a WordPress website.
+	 *
+	 * [--wpfc]
+	 * : Creates a WordPress website with Fase CGI.
+	 *
+	 * [--wpredis]
+	 * : Creates a WordPress website with Redis cache.
+	 *
+	 * [--letsencrypt]
+	 * : Enables letsencrypt.
 	 *
 	 * @param array $_          Positional argument.
 	 * @param array $assoc_args Associative argument.
@@ -256,4 +262,4 @@ class Create_Command extends WP_CLI_Command {
 	}
 }
 
-WP_CLI::add_command( 'ee site create', 'Create_Command' );
+WP_CLI::add_command( 'ee site create', 'Create_Command' );	

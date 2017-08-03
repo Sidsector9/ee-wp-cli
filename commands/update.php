@@ -167,6 +167,7 @@ class Update_Command extends WP_CLI_Command {
 					$site_type_code = 'wp';
 					$site_type      = 'WordPress';
 					$php            = '7.0' === $php ? '7.0' : '5.6';
+					$cache_type     = 'disabled';
 					$mysql          = 'yes';
 					break;
 

@@ -40,13 +40,12 @@ class Update_Command extends WP_CLI_Command {
 	 * @var array
 	 */
 	public $site_update_constraints = array(
-		'html'    => array( null, true, true, true, true, true, true ),
-		'php'     => array( false, null, true, true, true, true, true ),
-		'php7'    => array( false, false, null, true, true, true, true ),
-		'mysql'   => array( false, false, false, null, true, true, true ),
-		'wp'      => array( false, false, false, false, null, true, true ),
-		'wpfc'    => array( false, false, false, false, true, null, true ),
-		'wpredis' => array( false, false, false, true, true, true, null ),
+		'html'    => array( null, true, true, true, true, true ),
+		'php'     => array( false, null, true, true, true, true ),
+		'mysql'   => array( false, false, null, true, true, true ),
+		'wp'      => array( false, false, false, null, true, true ),
+		'wpfc'    => array( false, false, false, true, null, true ),
+		'wpredis' => array( false, false, true, true, true, null ),
 	);
 
 	/**

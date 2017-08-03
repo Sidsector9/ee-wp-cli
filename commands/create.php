@@ -76,31 +76,6 @@ class Create_Command extends WP_CLI_Command {
 	 * ## OPTIONS
 	 *
 	 * <name>
-	 * : Site Name
-	 *
-	 * [--html]
-	 * : Creates a simple HTML website.
-	 *
-	 * [--php]
-	 * : Creates a simple PHP website.
-	 *
-	 * [--php7]
-	 * : Creates a simple PHP7 website.
-	 *
-	 * [--mysql]
-	 * : Creates a simple PHP website with MySQL database.
-	 *
-	 * [--wp]
-	 * : Creates a WordPress website.
-	 *
-	 * [--wpfc]
-	 * : Creates a WordPress website with Fase CGI.
-	 *
-	 * [--wpredis]
-	 * : Creates a WordPress website with Redis cache.
-	 *
-	 * [--letsencrypt]
-	 * : Enables letsencrypt.
 	 *
 	 * @param array $_          Positional argument.
 	 * @param array $assoc_args Associative argument.
@@ -147,6 +122,7 @@ class Create_Command extends WP_CLI_Command {
 				case 'html':
 					$this->site_type_code = 'html';
 					$this->site_type      = 'HTML';
+					$this->php            = 'no';
 					break;
 
 				case 'php':
@@ -156,7 +132,7 @@ class Create_Command extends WP_CLI_Command {
 					break;
 
 				case 'php7':
-					if ( empty( array_intersect( array_keys( $assoc_args ), $this->site_types ) ) ) { 
+					if ( empty( array_intersect( array_keys( $assoc_args ), $this->site_types ) ) ) {
 						$this->site_type_code = 'php';
 						$this->site_type      = 'PHP';
 						$this->php            = $this->php ? '7.0' : '5.6';

@@ -13,14 +13,19 @@ class Update_Command extends WP_CLI_Command {
 	public $site_update_argument = array(
 		'html',
 		'php',
-		'php7',
 		'mysql',
 		'wp',
 		'wpfc',
 		'wpredis',
 	);
 
+	/**
+	 * Array of features.
+	 *
+	 * @var array
+	 */
 	public $site_feature_argument = array(
+		'php7',
 		'letsencrypt',
 	);
 
@@ -58,7 +63,6 @@ class Update_Command extends WP_CLI_Command {
 	public function __invoke( $_, $assoc_args ) {
 		global $db;
 
-		$upgrade_php  = false;
 		$feature_only = false;
 
 		// return is site name is empty.
@@ -112,10 +116,6 @@ class Update_Command extends WP_CLI_Command {
 			return;
 		}
 
-		if ( ! empty( $types ) && 'php7' === $types[0] ) {
-			$upgrade_php    = true;
-		}
-
 		$result             = _get_column_values( $site_name, array( '*' ) );
 		$result_array       = $result->fetchArray();
 		$site_type_code_old = $result_array['site_type_code'];
@@ -131,6 +131,7 @@ class Update_Command extends WP_CLI_Command {
 			return;
 		}
 
+		// Assigning variables with current values of the site.
 		$site_type_code = $result_array['site_type_code'];
 		$site_type      = $result_array['site_type'];
 		$php            = $result_array['php'];
@@ -143,12 +144,17 @@ class Update_Command extends WP_CLI_Command {
 				case 'php':
 					$site_type_code = 'php';
 					$site_type      = 'PHP';
-					$php            = '5.6';
+					$php            = '7.0' === $php ? '7.0' : '5.6';
 					break;
 
 				case 'php7':
-					$site_type_code = 'php';
-					$site_type      = 'PHP';
+					if ( 'html' === $site_type_code ) {
+						$site_type_code = 'php';
+						$site_type      = 'PHP';
+						$php            = '7.0';
+					} else {
+						$php            = '7.0';
+					}
 					break;
 
 				case 'mysql':
@@ -185,10 +191,6 @@ class Update_Command extends WP_CLI_Command {
 					$letsencrypt    = 'enabled';
 					break;
 			}
-		}
-
-		if ( $upgrade_php ) {
-			$php = '7.0';
 		}
 
 		$column_names = array(

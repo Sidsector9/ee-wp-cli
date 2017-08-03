@@ -71,10 +71,30 @@ class Create_Command extends WP_CLI_Command {
 	);
 
 	/**
-	 * Creates a site and stores site data in database and also creates
-	 * config files.
+	 * Creates a new site to the database and adds a configuration file for the site.
 	 *
-	 * Example: wp ee site create example.com --wpfc --letsencrypt
+	 * ## OPTIONS
+	 *
+	 * <name>
+	 * : The name of the site.
+	 *
+	 * [--options...]
+	 * : List of options.
+	 * ---
+	 * option:
+	 *   - html
+	 *   - php
+	 *   - php7
+	 *   - mysql
+	 *   - wp
+	 *   - wpfc
+	 *   - wpredis
+	 *   - letsencrypt
+	 * ---
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp ee site create example.com --wp --letsencrypt
 	 *
 	 * @param array $_          Positional argument.
 	 * @param array $assoc_args Associative argument.

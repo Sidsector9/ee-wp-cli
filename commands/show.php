@@ -2,9 +2,16 @@
 class Show_Command extends WP_CLI_Command {
 
 	/**
-	 * Displays site configuration.
+	 * Displays details from the site configuration file.
 	 *
-	 * Example: wp ee site show example.com
+	 * ## OPTIONS
+	 *
+	 * <name>
+	 * : The name of the site.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp ee site show example.com
 	 *
 	 * @param array $_          Positional argument.
 	 * @param array $assoc_args Associative argument.

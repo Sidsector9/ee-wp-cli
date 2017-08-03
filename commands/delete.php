@@ -2,9 +2,16 @@
 class Delete_Command extends WP_CLI_Command {
 
 	/**
-	 * Deletes a site from the database.
+	 * Deletes a site from the database and also deletes its configuration file.
 	 *
-	 * Example: wp ee site delete example.com
+	 * ## OPTIONS
+	 *
+	 * <name>
+	 * : The name of the site.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp ee site delete example.com
 	 *
 	 * @param array $_          Positional argument.
 	 * @param array $assoc_args Associative argument.

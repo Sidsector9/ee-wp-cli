@@ -49,10 +49,29 @@ class Update_Command extends WP_CLI_Command {
 	);
 
 	/**
-	 * Updates the specified website.
+	 * Updates a particular site and its configuration file for the site.
 	 *
-	 * Example:
-	 * wp ee site update example.com --wpfc --letsencrypt
+	 * ## OPTIONS
+	 *
+	 * <name>
+	 * : The name of the site.
+	 *
+	 * [--options...]
+	 * : List of options.
+	 * ---
+	 * option:
+	 *   - php
+	 *   - php7
+	 *   - mysql
+	 *   - wp
+	 *   - wpfc
+	 *   - wpredis
+	 *   - letsencrypt
+	 * ---
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp ee site update example.com --wp --letsencrypt
 	 *
 	 * @param array $_          Positional argument.
 	 * @param array $assoc_args Associative argument.

@@ -2,9 +2,16 @@
 class Info_Command extends WP_CLI_Command {
 
 	/**
-	 * Shows information of a particular site in a tabular form.
+	 * Shows information about a site in a tabular format.
 	 *
-	 * Example: wp ee site info example.com
+	 * ## OPTIONS
+	 *
+	 * <name>
+	 * : The name of the site.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp ee site info example.com
 	 *
 	 * @param array $_          Positional argument.
 	 * @param array $assoc_args Associative argument.

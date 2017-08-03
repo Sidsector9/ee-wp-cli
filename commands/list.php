@@ -2,9 +2,11 @@
 class List_Command extends WP_CLI_Command {
 
 	/**
-	 * Displays a list of domain names of all sites.
+	 * Lists all the site names line-by-line.
 	 *
-	 * Example: wp ee site list
+	 * ## EXAMPLES
+	 *
+	 *     wp ee site site list
 	 *
 	 * @param array $_          Positional argument.
 	 * @param array $assoc_args Associative argument.

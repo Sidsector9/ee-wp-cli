@@ -10,7 +10,11 @@ What things you need to install the software and how to install them:
 
  1. You need to have **PHP version >= 5.3** installed on your system.
  2. Install WP-CLI on your system. You can find the installation instructions [here](http://wp-cli.org/#installing).
- 3. Install SQLite3 driver or enable the extension if driver is already installed.
+ 3. Install SQLite3 driver or enable the extension if driver is already installed. Linux users can run the following command to install it:
+ ```
+sudo apt install php7.0-cli
+sudo apt install php7.0-sqlite
+```
 
 ### Installing
 

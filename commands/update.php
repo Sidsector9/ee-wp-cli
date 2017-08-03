@@ -35,7 +35,7 @@ class Update_Command extends WP_CLI_Command {
 	 * to compare it with the below null, true and false values.
 	 *
 	 * The columns of booelan values are in this order:
-	 * html, php, php7, mysql, wp, wpfc, wpredis
+	 * html, php, mysql, wp, wpfc, wpredis
 	 *
 	 * @var array
 	 */
@@ -45,7 +45,7 @@ class Update_Command extends WP_CLI_Command {
 		'mysql'   => array( false, false, null, true, true, true ),
 		'wp'      => array( false, false, false, null, true, true ),
 		'wpfc'    => array( false, false, false, true, null, true ),
-		'wpredis' => array( false, false, true, true, true, null ),
+		'wpredis' => array( false, false, false, true, true, null ),
 	);
 
 	/**

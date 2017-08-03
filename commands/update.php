@@ -130,8 +130,11 @@ class Update_Command extends WP_CLI_Command {
 		if ( empty( $types ) && ! empty( $features ) ) {
 			$is_updatable = true;
 			$feature_only = true;
-		} elseif ( false === $is_updatable || null === $is_updatable ) {
+		} elseif ( false === $is_updatable  ) {
 			WP_CLI::error( 'Cannot update from ' . $site_type_code_old . ' to ' . $site_type_code_new );
+			return;
+		} elseif (  null === $is_updatable ) {
+			WP_CLI::line( WP_CLI::colorize( '%CNotice:%n ' ) . $site_type_code_old . ' package already exists!' );
 			return;
 		}
 

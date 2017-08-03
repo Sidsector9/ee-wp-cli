@@ -110,12 +110,12 @@ class Create_Command extends WP_CLI_Command {
 			$this->letsencrypt = true;
 		}
 
-		// Upgrade to PHP 7.0
+		// Upgrade to PHP 7.0.
 		if ( array_key_exists( 'php7' , $assoc_args ) ) {
 			$this->php = true;
 		}
 
-		$remaining = array_diff(  array_keys( $assoc_args ), $this->site_types );
+		$remaining = array_diff( array_keys( $assoc_args ), $this->site_types );
 
 		foreach ( $assoc_args as $key => $value ) {
 			switch ( $key ) {
@@ -187,7 +187,7 @@ class Create_Command extends WP_CLI_Command {
 			return;
 		}
 
-		// Database table columns
+		// Database table columns.
 		$table_columns = array(
 			'site_name',
 			'site_type_code',
@@ -238,4 +238,4 @@ class Create_Command extends WP_CLI_Command {
 	}
 }
 
-WP_CLI::add_command( 'ee site create', 'Create_Command' );	
+WP_CLI::add_command( 'ee site create', 'Create_Command' );

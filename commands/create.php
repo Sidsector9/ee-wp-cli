@@ -235,6 +235,8 @@ class Create_Command extends WP_CLI_Command {
 		} else {
 			WP_CLI::success( $this->site_name . ' successfully created.' );
 		}
+
+		$db->close();
 	}
 }
 

@@ -38,6 +38,8 @@ class Show_Command extends WP_CLI_Command {
 		} else {
 			_get_config( $site_name );
 		}
+
+		$db->close();
 	}
 }
 

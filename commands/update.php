@@ -231,6 +231,8 @@ class Update_Command extends WP_CLI_Command {
 				WP_CLI::success( 'Successfully updated from ' . $site_type_code_old . ' to ' . $site_type_code_new );
 			}
 		}
+
+		$db->close();
 	}
 }
 

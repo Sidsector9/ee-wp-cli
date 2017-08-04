@@ -30,6 +30,8 @@ class List_Command extends WP_CLI_Command {
 		while ( $site_name = $result->fetchArray() ) {
 			WP_CLI::log( WP_CLI::colorize( '%B' . $site_name['site_name'] . '%n' ) );
 		}
+
+		$db->close();
 	}
 }
 

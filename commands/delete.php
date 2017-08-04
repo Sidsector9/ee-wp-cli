@@ -45,6 +45,8 @@ class Delete_Command extends WP_CLI_Command {
 				WP_CLI::success( $site_name . ' successfully deleted.' );
 			}
 		}
+
+		$db->close();
 	}
 }
 

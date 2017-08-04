@@ -58,6 +58,8 @@ class Info_Command extends WP_CLI_Command {
 
 		// Display in a tabular format.
 		WP_CLI\Utils\format_items( 'table', $table_array, $args );
+
+		$db->close();
 	}
 }
 

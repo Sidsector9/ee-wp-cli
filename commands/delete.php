@@ -7,7 +7,6 @@ class Delete_Command extends WP_CLI_Command {
 	 * ## OPTIONS
 	 *
 	 * <name>
-	 * : The name of the site.
 	 *
 	 * ## EXAMPLES
 	 *
@@ -36,6 +35,10 @@ class Delete_Command extends WP_CLI_Command {
 			WP_CLI::error( $site_name . ' does not exist' );
 			die;
 		} else {
+			if ( ! WP_CLI\Utils\get_flag_value( $assoc_args, 'noprompt' ) ) {
+				$question = 'Are you sure you want to delete ' . $site_name . '?: ';
+				WP_CLI::confirm( $question );
+			}
 			$result = $db->query( 'DELETE FROM ee_site_data WHERE site_name="' . $site_name . '"' );
 			if ( $db->changes() > 0 ) {
 				_delete_configuration_file( CONFIG_DIR, $site_name, true );
